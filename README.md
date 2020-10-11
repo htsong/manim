@@ -75,6 +75,12 @@ python3 -m manim example_scenes.py SquareToCircle -pl
 ```
 
 ### Using Docker
+the image of v0.1.11(20201011) has been push to [dockerhub](https://hub.docker.com/r/alex76treeheir/manim), you can use it directly.
+
+```
+docker pull alex76treeheir/manim:0.1.11
+```
+
 Since it's a bit tricky to get all the dependencies set up just right, there is a Dockerfile and Compose file provided in this repo as well as [a premade image on Docker Hub](https://hub.docker.com/r/eulertour/manim/tags/). The Dockerfile contains instructions on how to build a manim image, while the Compose file contains instructions on how to run the image.
 
 The prebuilt container image has manim repository included.
