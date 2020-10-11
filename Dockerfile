@@ -11,9 +11,20 @@ RUN apt-get update \
         texlive-latex-recommended \
         texlive-science \
         tipa \
-    && rm -rf /var/lib/apt/lists/*
+		fontconfig \
+		xfonts-utils \
+    && rm -rf /var/lib/apt/lists/* \
+	&& mkdir /usr/share/fonts/msyh
+COPY ./font/* /usr/share/fonts/msyh/
 COPY . /manim
-RUN cd /manim \
+RUN cd /usr/share/fonts \
+    && mkfontscale \
+    && mkfontdir \
+    && fc-cache \
+    && fc-list :lang=zh \
+    && cd /manim \
+    && git init \
     && python setup.py sdist \
-    && python -m pip install dist/manimlib*
+    && python -m pip install dist/manimlib* \
+    && pip install -r /manim/requirements.txt
 ENTRYPOINT ["/bin/bash"]

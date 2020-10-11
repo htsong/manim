@@ -1,0 +1,1 @@
+docker build -t  alex76treeheir/manim:0.1.11 .

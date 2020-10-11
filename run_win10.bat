@@ -1,0 +1,1 @@
+docker run -it --rm -v /d/doc/dockerPrjs/manimPrjs/manim_share:/manim/media alex76treeheir/manim:0.1.11
